@@ -136,7 +136,7 @@ __isr_vector:
     .long   FTM3_IRQHandler                                 /* FTM3 fault, overflow and channels interrupt*/
     .long   0                                               /* Not Present: DAC1 interrupt*/
     .long   ADC1_IRQHandler                                 /* ADC1 interrupt*/
-    .long   Reserved90_IRQHandler                           /* I2C2? Reserved Interrupt 90*/
+    .long   I2C1_IRQHandler                                 /* I2C2 interrupt*/
     .long   Reserved91_IRQHandler                           /* CAN? Reserved Interrupt 91*/
     .long   Reserved92_IRQHandler                           /* CAN? Reserved Interrupt 92*/
     .long   Reserved93_IRQHandler                           /* CAN? Reserved Interrupt 93*/

@@ -126,7 +126,13 @@ Uart SerialSystem(UART1, kSimClockGateUart1, DEFAULT_SYSTEM_CLOCK, UART1_RX_TX_I
 Uart Serial2(UART2, kSimClockGateUart2, DEFAULT_BUS_CLOCK, UART2_RX_TX_IRQn, 11, 12);
 
 TwoWire WireInternal(I2C0, kSimClockGateI2c0, DEFAULT_BUS_CLOCK, I2C0_IRQn, 27, 28);
+#if defined(DASH_I2C1_ALT)
+TwoWire Wire(I2C1, kSimClockGateI2c1, DEFAULT_BUS_CLOCK, I2C1_IRQn, 34, 32);
+#elif defined(DASH_I2C2)
+TwoWire Wire(I2C2, kSimClockGateI2c2, DEFAULT_BUS_CLOCK, I2C2_IRQn, 8, 2);
+#else
 TwoWire Wire(I2C1, kSimClockGateI2c1, DEFAULT_BUS_CLOCK, I2C1_IRQn, 14, 15);
+#endif
 
 DashClass Dash;
 ClockClass Clock;
@@ -227,6 +233,11 @@ void I2C1_IRQHandler(void)
     Wire.onService();
 }
 
+void I2C2_IRQHandler(void)
+{
+    Wire.onService();
+}
+
 void RTC_Seconds_IRQHandler(void)
 {
     Clock.secondsInterrupt();
@@ -264,6 +275,7 @@ void wvariant_init(void)
     NVIC_SetPriority(UART2_RX_TX_IRQn, 3);
     NVIC_SetPriority(I2C0_IRQn, 4);
     NVIC_SetPriority(I2C1_IRQn, 5);
+    NVIC_SetPriority(I2C2_IRQn, 5);
     NVIC_SetPriority(LPTMR0_IRQn, 4);
     NVIC_SetPriority(PIT0_IRQn, 8);
     NVIC_SetPriority(PIT2_IRQn, 5);

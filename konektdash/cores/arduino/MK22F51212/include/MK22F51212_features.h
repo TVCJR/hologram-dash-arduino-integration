@@ -211,7 +211,7 @@
 /* @brief GPIO availability on the SoC. */
 #define FSL_FEATURE_SOC_GPIO_COUNT (5)
 /* @brief I2C availability on the SoC. */
-#define FSL_FEATURE_SOC_I2C_COUNT (2)
+#define FSL_FEATURE_SOC_I2C_COUNT (3)
 /* @brief I2S availability on the SoC. */
 #define FSL_FEATURE_SOC_I2S_COUNT (1)
 /* @brief ICS availability on the SoC. */

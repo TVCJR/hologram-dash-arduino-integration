@@ -62,10 +62,10 @@ public:
     virtual bool eraseSector(uint32_t address) = 0;
     virtual bool eraseAll() = 0;
 
-    virtual bool beginRead(uint32_t address) {}
+	virtual bool beginRead(uint32_t address) { return true; } // TVC: added return to stop compiler warnings.
     virtual uint8_t continueRead() = 0;
     virtual void endRead() {}
-    virtual bool beginWrite(uint32_t address){}
+	virtual bool beginWrite(uint32_t address) { return true; } // TVC: added return to stop compiler warnings.
     virtual bool continueWrite(uint8_t byte) = 0;
-    virtual bool endWrite() {}
+	virtual bool endWrite() { return true; } // TVC: added return to stop compiler warnings.
 };

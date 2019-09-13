@@ -5661,12 +5661,17 @@ typedef struct {
 /** Peripheral I2C1 base pointer */
 #define I2C1                                     ((I2C_Type *)I2C1_BASE)
 #define I2C1_BASE_PTR                            (I2C1)
+/** Peripheral I2C2 base address */
+#define I2C2_BASE                                (0x400E6000u)
+/** Peripheral I2C2 base pointer */
+#define I2C2                                     ((I2C_Type *)I2C2_BASE)
+#define I2C2_BASE_PTR                            (I2C2)
 /** Array initializer of I2C peripheral base addresses */
-#define I2C_BASE_ADDRS                           { I2C0_BASE, I2C1_BASE }
+#define I2C_BASE_ADDRS                           { I2C0_BASE, I2C1_BASE, I2C2_BASE }
 /** Array initializer of I2C peripheral base pointers */
-#define I2C_BASE_PTRS                            { I2C0, I2C1 }
+#define I2C_BASE_PTRS                            { I2C0, I2C1, I2C2 }
 /** Interrupt vectors for the I2C peripheral type */
-#define I2C_IRQS                                 { I2C0_IRQn, I2C1_IRQn }
+#define I2C_IRQS                                 { I2C0_IRQn, I2C1_IRQn, I2C2_IRQn }
 
 /* ----------------------------------------------------------------------------
    -- I2C - Register accessor macros
@@ -5705,6 +5710,19 @@ typedef struct {
 #define I2C1_A2                                  I2C_A2_REG(I2C1)
 #define I2C1_SLTH                                I2C_SLTH_REG(I2C1)
 #define I2C1_SLTL                                I2C_SLTL_REG(I2C1)
+/* I2C2 */
+#define I2C2_A1                                  I2C_A1_REG(I2C2)
+#define I2C2_F                                   I2C_F_REG(I2C2)
+#define I2C2_C1                                  I2C_C1_REG(I2C2)
+#define I2C2_S                                   I2C_S_REG(I2C2)
+#define I2C2_D                                   I2C_D_REG(I2C2)
+#define I2C2_C2                                  I2C_C2_REG(I2C2)
+#define I2C2_FLT                                 I2C_FLT_REG(I2C2)
+#define I2C2_RA                                  I2C_RA_REG(I2C2)
+#define I2C2_SMB                                 I2C_SMB_REG(I2C2)
+#define I2C2_A2                                  I2C_A2_REG(I2C2)
+#define I2C2_SLTH                                I2C_SLTH_REG(I2C2)
+#define I2C2_SLTL                                I2C_SLTL_REG(I2C2)
 
 /*!
  * @}

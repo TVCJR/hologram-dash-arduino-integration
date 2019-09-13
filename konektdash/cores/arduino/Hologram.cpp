@@ -52,10 +52,15 @@ void Hologram::attachHandlerCharge(void (*charge_handler)(charge_status status))
 
 void Hologram::begin() {
     end();
-    // Serial2.begin(115200);
-    // modem.begin(SerialSystem, *this, &Serial2);
+
+#ifdef MODEM_DEBUG
+    Serial2.begin(115200);
+    modem.begin(SerialSystem, *this, &Serial2);
+#else
     modem.begin(SerialSystem, *this);
-    ready = true;
+#endif
+
+	ready = true;
     powerUp();
 }
 
